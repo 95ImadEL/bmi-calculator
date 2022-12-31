@@ -4,11 +4,14 @@ class ReusableCard extends StatelessWidget {
   final Color colour;
   final Widget? cardChild;
   final VoidCallback? onTap;
-  ReusableCard({required this.colour, this.cardChild, this.onTap});
+  int flex = 1;
+  ReusableCard(
+      {required this.colour, this.cardChild, this.onTap, this.flex = 1});
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
+      flex: flex,
       child: GestureDetector(
         onTap: onTap,
         child: Container(

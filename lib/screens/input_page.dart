@@ -1,13 +1,14 @@
-import 'package:bmi_calculator/results_page.dart';
-import 'package:bmi_calculator/reusable_card.dart';
+import 'package:bmi_calculator/screens/results_page.dart';
+import 'package:bmi_calculator/components/reusable_card.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'constants.dart';
-import 'icon_content.dart';
+import '../constants.dart';
+import '../components/icon_content.dart';
 
 enum Gender { male, female }
 
+//TODO: Check why we can't move those constants in constants file
 const kNumberTextStyle = TextStyle(
   fontSize: 50.0,
   fontWeight: FontWeight.w900,
@@ -16,6 +17,12 @@ const kNumberTextStyle = TextStyle(
 const TextStyle kLabelTextStyle = TextStyle(
   fontSize: 18.0,
   color: Color(0xFF8D8E98),
+);
+
+const kLargeButtonTextStyle = TextStyle(
+  fontSize: 25.0,
+  fontWeight: FontWeight.bold,
+  color: Colors.white,
 );
 
 class InputPage extends StatefulWidget {
@@ -215,11 +222,15 @@ class _InputPageState extends State<InputPage> {
               }));
             },
             child: Container(
-              child: Text(
-                "CALCULATE",
+              child: Center(
+                child: Text(
+                  "CALCULATE",
+                  style: kLargeButtonTextStyle,
+                ),
               ),
               color: kBottomContainerColor,
               margin: const EdgeInsets.only(top: 10.0),
+              padding: EdgeInsets.only(bottom: 5.0),
               width: double.infinity,
               height: kBottomContainerHeight,
             ),
