@@ -1,5 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+const bottomContainerHeight = 80.0;
+const activeCardColor = Color(0xFF1D1E33);
+const bottomContainerColor = Color(0xFFEB1555);
 
 class InputPage extends StatefulWidget {
   const InputPage({Key? key}) : super(key: key);
@@ -13,7 +16,7 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BMI CALCULATOR'),
+        title: const Text('BMI CALCULATOR'),
       ),
       body: Column(
         children: [
@@ -21,29 +24,35 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 ReusableCard(
-                  colour: Color(0xFF1D1E33),
+                  colour: activeCardColor,
                 ),
                 ReusableCard(
-                  colour: Color(0xFF1D1E33),
+                  colour: activeCardColor,
                 ),
               ],
             ),
           ),
           ReusableCard(
-            colour: Color(0xFF1D1E33),
+            colour: activeCardColor,
           ),
           Expanded(
             child: Row(
               children: [
                 ReusableCard(
-                  colour: Color(0xFF1D1E33),
+                  colour: activeCardColor,
                 ),
                 ReusableCard(
-                  colour: Color(0xFF1D1E33),
+                  colour: activeCardColor,
                 ),
               ],
             ),
           ),
+          Container(
+            color: bottomContainerColor,
+            margin: EdgeInsets.only(top: 10.0),
+            width: double.infinity,
+            height: bottomContainerHeight,
+          )
         ],
       ),
     );
@@ -59,7 +68,7 @@ class ReusableCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        margin: EdgeInsets.all(15.0),
+        margin: const EdgeInsets.all(15.0),
         decoration: BoxDecoration(
             color: colour, borderRadius: BorderRadius.circular(10.0)),
       ),
