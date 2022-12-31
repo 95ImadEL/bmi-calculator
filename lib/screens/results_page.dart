@@ -30,7 +30,14 @@ const kBodyTextStyle = TextStyle(
 );
 
 class ResultsPage extends StatelessWidget {
-  const ResultsPage({Key? key}) : super(key: key);
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
+
+  const ResultsPage(
+      {required this.bmiResult,
+      required this.resultText,
+      required this.interpretation});
 
   @override
   Widget build(BuildContext context) {
@@ -59,15 +66,15 @@ class ResultsPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  "OVERWEIGHT",
+                  resultText.toUpperCase(),
                   style: kResultTextStyle,
                 ),
                 Text(
-                  "26.7",
+                  bmiResult,
                   style: kActualBMIStyle,
                 ),
                 Text(
-                  "You have a higher than normal body weight. Try to exercise more.",
+                  interpretation,
                   textAlign: TextAlign.center,
                   style: kBodyTextStyle,
                 )
